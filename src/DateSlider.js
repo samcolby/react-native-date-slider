@@ -46,7 +46,7 @@ class DateSlider extends React.Component {
    * The FlatList renders a 'week' as a new item. This function
    * creates a number of entries equal to the weeks parameter
    * and starting from the fromDate paramater. The fromDate
-   * needs to be set to the correctly weekday used to start each WeekView
+   * needs to be set to the correct weekday used to start each WeekView
    * by the callee.
    *
    * @param {moment} fromDate
