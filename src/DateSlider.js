@@ -40,6 +40,25 @@ class DateSlider extends React.Component {
     );
   }
 
+  /**
+   * Pure function to generate an array of objects that can be used by the FlatList.
+   *
+   * The FlatList renders a 'week' as a new item. This function
+   * creates a number of entries equal to the weeks parameter
+   * and starting from the fromDate paramater. The fromDate
+   * needs to be set to the correctly weekday used to start each WeekView
+   * by the callee.
+   *
+   * @param {moment} fromDate
+   *  The starting date for the array of weeks to be generated
+   * @param {integer} weeks
+   *  The number of weeks to be generated
+   * @param {moment} selectedDate
+   *  The date that is current selected
+   * @returns {Array<Object>}
+   *
+   * @memberof DateSlider
+   */
   _generateDates(fromDate, weeks, selectedDate) {
     const startOfSelectedWeek = selectedDate.clone().isoWeekday(1);
 
@@ -60,6 +79,23 @@ class DateSlider extends React.Component {
     });
   }
 
+  /**
+   * A pure function to generate an array of boolean values
+   * that specify if one of the days of the week is selected.
+   *
+   * This array is to be used as a prop on the WeekView component.
+   *
+   * @param {moment} weekStartDate
+   *  The start date of the week this is to be generated
+   * @param {moment} startOfSelectedWeek
+   *  The start of the week that contains the selectedDate
+   * @param {moment} selectedDate
+   *  The date that is selected
+   *
+   * @returns {Array<boolean>}
+   *
+   * @memberof DateSlider
+   */
   _generateArrSelected(weekStartDate, startOfSelectedWeek, selectedDate) {
     let result = [false, false, false, false, false, false, false];
     if (weekStartDate && weekStartDate.isSame(startOfSelectedWeek, "day")) {
@@ -68,8 +104,27 @@ class DateSlider extends React.Component {
     return result;
   }
 
+  /**
+   * Captures the FlatList instance ref, so that
+   * the scrollTo method can be called on it.
+   *
+   * This is populated from the DateSliderComponent
+   * @param {FlatList} flatlist
+   *   The FlatList instance
+   *
+   * @memberof DateSlider
+   */
   _captureFlatListRef = flatlist => (this.flatlist = flatlist);
 
+  /**
+   * ReactNative method called by the FlatList
+   * This needs to be here as it uses viewWidth held in state
+   *
+   * @param {Object} data
+   * @param {Object} index
+   *
+   * @memberof DateSlider
+   */
   _getItemLayout = (data, index) => {
     return {
       length: this.state.viewWidth,
