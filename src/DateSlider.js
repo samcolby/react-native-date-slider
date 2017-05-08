@@ -129,7 +129,7 @@ class DateSlider extends React.Component {
    * This needs to be here as it uses viewWidth held in state
    *
    * @param {Object} data
-   * @param {Object} index
+   * @param {number} index
    *
    * @memberof DateSlider
    */
@@ -212,7 +212,7 @@ class DateSlider extends React.Component {
   _onViewableItemsChanged = ({ viewableItems, changed }) => {
     if (viewableItems.length === 1) {
       const viewableIndex = viewableItems[0].index;
-      const changedIndex = _.get(changed[0], "index");
+      const changedIndex = changed[0].index;
       this.viewableIndex = viewableIndex;
 
       if (changedIndex === viewableIndex - 1) {
