@@ -196,14 +196,16 @@ class DateSlider extends React.Component {
 
   _onStartReached = () => {
     const firstDate = this.state.arrDates[0].date;
-    const prependWeeksFrom = firstDate.clone().subtract(4, "weeks");
+    const prependWeeksFrom = firstDate
+      .clone()
+      .subtract(EXTEND_WEEKS_BY, "weeks");
     const arrNewDates = this._generateDates(
       prependWeeksFrom,
       EXTEND_WEEKS_BY,
       this.state.selectedDate
     );
     this.setState({ arrDates: [...arrNewDates, ...this.state.arrDates] });
-    this.selectedIndex = this.selectedIndex + 4;
+    this.selectedIndex = this.selectedIndex + EXTEND_WEEKS_BY;
     this._scrollTo(END_THRESHOLD - 1 + EXTEND_WEEKS_BY);
   };
 
