@@ -6,7 +6,15 @@ import _ from "lodash";
 
 import DateSliderComponent from "./DateSliderComponent";
 
+const END_THRESHOLD = 3;
+const EXTEND_WEEKS_BY = 4;
+
 class DateSlider extends React.Component {
+  static propTypes = {
+    onDateSelected: React.PropTypes.func,
+    onWeekChanged: React.PropTypes.func
+  };
+
   flatlist = undefined;
   selectedIndex = 0;
   viewableIndex = -1;
@@ -33,7 +41,7 @@ class DateSlider extends React.Component {
         getItemLayout={this._getItemLayout}
         onDateSelected={this._onDateSelected}
         onEndReached={this._onEndReached}
-        onEndReachedThreshold={3}
+        onEndReachedThreshold={END_THRESHOLD}
         onLayout={this._onLayout}
         onViewableItemsChanged={this._onViewableItemsChanged}
       />
@@ -107,8 +115,8 @@ class DateSlider extends React.Component {
   /**
    * Captures the FlatList instance ref, so that
    * the scrollTo method can be called on it.
+   * This is populated from the DateSliderComponent.
    *
-   * This is populated from the DateSliderComponent
    * @param {FlatList} flatlist
    *   The FlatList instance
    *
@@ -133,6 +141,16 @@ class DateSlider extends React.Component {
     };
   };
 
+  /**
+   * ReactNative method called by the view containing the FlatList
+   * This needs to be here as handles setting the viewWidth
+   * based on what the containing view reports.
+   *
+   * @param {Object} event
+   *  The event generated from the RN onLayout call
+   *
+   * @memberof DateSlider
+   */
   _onLayout = event => {
     const nativeEvent = event.nativeEvent;
     this.setState({ viewWidth: nativeEvent.layout.width });
@@ -143,6 +161,17 @@ class DateSlider extends React.Component {
     }
   };
 
+  /**
+   * Scrolls the flatlist to the specified index.
+   * This wraps the call in a setTimeout(_,0) Promise
+   * to stop issues when the index to be scrolled to has not yet been
+   * rendered.
+   *
+   * @param {number} index
+   *  The index to scroll the flatlist to
+   *
+   * @memberof DateSlider
+   */
   _scrollTo = index => {
     const scrollToPromise = new Promise(resolve => setTimeout(resolve, 0));
     scrollToPromise.then(() => {
@@ -155,43 +184,58 @@ class DateSlider extends React.Component {
   };
 
   _onEndReached = () => {
-    const append1Week = this.state.arrDates[this.state.arrDates.length - 1].date
-      .clone()
-      .add(1, "weeks");
+    const lastDate = this.state.arrDates[this.state.arrDates.length - 1].date;
+    const appendWeeksFrom = lastDate.clone().add(1, "weeks");
     const arrNewDates = this._generateDates(
-      append1Week,
-      4,
+      appendWeeksFrom,
+      EXTEND_WEEKS_BY,
       this.state.selectedDate
     );
     this.setState({ arrDates: [...this.state.arrDates, ...arrNewDates] });
   };
 
+  _onStartReached = () => {
+    const firstDate = this.state.arrDates[0].date;
+    const prependWeeksFrom = firstDate.clone().subtract(4, "weeks");
+    const arrNewDates = this._generateDates(
+      prependWeeksFrom,
+      EXTEND_WEEKS_BY,
+      this.state.selectedDate
+    );
+    this.setState({ arrDates: [...arrNewDates, ...this.state.arrDates] });
+    this.selectedIndex = this.selectedIndex + 4;
+    this._scrollTo(END_THRESHOLD - 1 + EXTEND_WEEKS_BY);
+  };
+
   _onViewableItemsChanged = ({ viewableItems, changed }) => {
     if (viewableItems.length === 1) {
-      this.viewableIndex = viewableItems[0].index;
-    }
-    //console.log("viewable " + JSON.stringify(viewableItems));
-    // console.log("changed " + JSON.stringify(changed));
-    if (
-      _.get(changed[0], "index") === 2 &&
-      _.get(viewableItems[0], "index") === 1 &&
-      !_.get(changed[0], "isViewable")
-    ) {
-      const prepend4Weeks = this.state.arrDates[0].date
-        .clone()
-        .subtract(4, "weeks");
-      const arrNewDates = this._generateDates(
-        prepend4Weeks,
-        4,
-        this.state.selectedDate
-      );
-      this.setState({ arrDates: [...arrNewDates, ...this.state.arrDates] });
-      this.selectedIndex = this.selectedIndex + 4;
-      this._scrollTo(1 + 4);
+      const viewableIndex = viewableItems[0].index;
+      const changedIndex = _.get(changed[0], "index");
+      this.viewableIndex = viewableIndex;
+
+      if (changedIndex === viewableIndex - 1) {
+        // Week forward
+        const date = this.state.arrDates[viewableIndex].date;
+        this.props.onWeekChanged(date);
+      }
+
+      if (changedIndex === viewableIndex + 1) {
+        // week back
+        const date = this.state.arrDates[viewableIndex].date;
+        this.props.onWeekChanged(date);
+      }
+
+      if (
+        changedIndex === END_THRESHOLD &&
+        viewableIndex === changedIndex - 1
+      ) {
+        this._onStartReached();
+      }
     }
   };
 
   _onDateSelected = date => {
+    this.props.onDateSelected(date);
     const startOfSelectedWeek = date.clone().isoWeekday(1);
 
     let arrDates = [...this.state.arrDates];
