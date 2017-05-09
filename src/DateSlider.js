@@ -6,13 +6,14 @@ import _ from "lodash";
 
 import DateSliderComponent from "./DateSliderComponent";
 
-const END_THRESHOLD = 3;
-const EXTEND_WEEKS_BY = 4;
+const END_THRESHOLD = 4;
+const EXTEND_WEEKS_BY = 8;
 
 class DateSlider extends React.Component {
   static propTypes = {
     onDateSelected: React.PropTypes.func,
-    onWeekChanged: React.PropTypes.func
+    onWeekChanged: React.PropTypes.func,
+    selectedDate: React.PropTypes.object
   };
 
   flatlist = undefined;
@@ -22,14 +23,38 @@ class DateSlider extends React.Component {
   constructor(props) {
     super(props);
 
+    let selectedDate;
+    if (this.props.selectedDate) {
+      selectedDate = moment(this.props.selectedDate).startOf("day");
+    } else {
+      selectedDate = moment(new Date()).startOf("day");
+    }
+
     // The very first date in the FlatList
-    const startingDate = moment().isoWeekday(1).subtract(4, "weeks");
+    const startingDate = selectedDate
+      .clone()
+      .isoWeekday(1)
+      .subtract(EXTEND_WEEKS_BY, "weeks");
 
     this.state = {
       viewWidth: Dimensions.get("window").width,
-      arrDates: this._generateDates(startingDate, 9, moment()),
-      selectedDate: moment().startOf("day")
+      arrDates: this._generateDates(
+        startingDate,
+        EXTEND_WEEKS_BY * 2 + 1,
+        selectedDate
+      ),
+      selectedDate: selectedDate
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.selectedDate &&
+      !this.state.selectedDate.isSame(nextProps.selectedDate, "day")
+    ) {
+      this._setSelectedDate(moment(nextProps.selectedDate).startOf("day"));
+      this._scrollTo(this.selectedIndex);
+    }
   }
 
   render() {
@@ -237,7 +262,11 @@ class DateSlider extends React.Component {
   };
 
   _onDateSelected = date => {
+    this._setSelectedDate(date);
     this.props.onDateSelected(date);
+  };
+
+  _setSelectedDate = date => {
     const startOfSelectedWeek = date.clone().isoWeekday(1);
 
     let arrDates = [...this.state.arrDates];
