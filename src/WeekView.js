@@ -31,6 +31,18 @@ class WeekView extends PureComponent {
     }
   }
 
+  /**
+   * Generates an array of the days for this week.
+   * This uses the passed in startingDate as the first day of the array
+   * so as to keep the CalendarDays working as a PureComponent
+   *
+   * @param {moment} startingDate
+   *  The starting date for this week
+   * @returns {Array<moment>}
+   *  An array of moment instances representing the week
+   *
+   * @memberof WeekView
+   */
   generateArrDays(startingDate) {
     return [
       startingDate,
