@@ -241,26 +241,22 @@ class DateSlider extends React.Component {
     const startOfSelectedWeek = date.clone().isoWeekday(1);
 
     let arrDates = [...this.state.arrDates];
-    const prevSelected = _.findIndex(arrDates, [
-      "key",
-      this.state.selectedDate.clone().isoWeekday(1).toISOString()
-    ]);
-    const selected = _.findIndex(arrDates, [
+
+    const prevSelectedIndex = this.selectedIndex;
+
+    const selectedIndex = _.findIndex(arrDates, [
       "key",
       startOfSelectedWeek.toISOString()
     ]);
 
-    arrDates[prevSelected].arrSelected = this._generateArrSelected();
-    arrDates[selected].arrSelected = this._generateArrSelected(
-      arrDates[selected].date,
+    arrDates[prevSelectedIndex].arrSelected = this._generateArrSelected();
+    arrDates[selectedIndex].arrSelected = this._generateArrSelected(
+      arrDates[selectedIndex].date,
       startOfSelectedWeek,
       date
     );
 
-    this.selectedIndex = _.findIndex(arrDates, [
-      "key",
-      startOfSelectedWeek.toISOString()
-    ]);
+    this.selectedIndex = selectedIndex;
 
     this.setState({
       arrDates: arrDates,
