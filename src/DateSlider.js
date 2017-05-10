@@ -25,6 +25,10 @@ class DateSlider extends React.Component {
   constructor(props) {
     super(props);
 
+    if (props.locale && props.locale.name && props.locale.config) {
+      DateFns.initLocale(props.locale.name, props.locale.config);
+    }
+
     let selectedDate;
     if (this.props.selectedDate) {
       selectedDate = DateFns.initMoment(this.props.selectedDate, props.locale);
