@@ -1,8 +1,9 @@
 import React from "react";
 import { Dimensions } from "react-native";
 
-import moment from "moment";
 import _ from "lodash";
+
+import DateFns from "./DateFns";
 
 import DateSliderComponent from "./DateSliderComponent";
 
@@ -13,7 +14,8 @@ class DateSlider extends React.Component {
   static propTypes = {
     onDateSelected: React.PropTypes.func,
     onWeekChanged: React.PropTypes.func,
-    selectedDate: React.PropTypes.object
+    selectedDate: React.PropTypes.object,
+    locale: React.PropTypes.object
   };
 
   flatlist = undefined;
@@ -25,9 +27,9 @@ class DateSlider extends React.Component {
 
     let selectedDate;
     if (this.props.selectedDate) {
-      selectedDate = moment(this.props.selectedDate).startOf("day");
+      selectedDate = DateFns.initMoment(this.props.selectedDate, props.locale);
     } else {
-      selectedDate = moment(new Date()).startOf("day");
+      selectedDate = DateFns.initMoment(new Date(), props.locale);
     }
 
     // The very first date in the FlatList
@@ -52,7 +54,9 @@ class DateSlider extends React.Component {
       nextProps.selectedDate &&
       !this.state.selectedDate.isSame(nextProps.selectedDate, "day")
     ) {
-      this._setSelectedDate(moment(nextProps.selectedDate).startOf("day"));
+      this._setSelectedDate(
+        DateFns.initMoment(nextProps.selectedDate, nextProps.locale)
+      );
       this._scrollTo(this.selectedIndex);
     }
   }
@@ -96,7 +100,7 @@ class DateSlider extends React.Component {
     const startOfSelectedWeek = selectedDate.clone().isoWeekday(1);
 
     return _.map(_.range(weeks), i => {
-      const weekStartDate = fromDate.clone().add(i, "weeks").startOf("day");
+      const weekStartDate = fromDate.clone().add(i, "weeks");
       if (startOfSelectedWeek.isSame(weekStartDate, "day")) {
         this.selectedIndex = i;
       }
