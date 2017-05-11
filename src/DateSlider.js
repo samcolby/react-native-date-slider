@@ -102,6 +102,8 @@ class DateSlider extends React.Component {
    *  The number of weeks to be generated
    * @param {moment} selectedDate
    *  The date that is current selected
+   * @param {number} isoStartDay
+   *  The ISOWeekday number that starts the week being displayed (1 - 7)
    * @returns {Array<Object>}
    *
    * @memberof DateSlider
@@ -142,6 +144,8 @@ class DateSlider extends React.Component {
    *  The start of the week that contains the selectedDate
    * @param {moment} selectedDate
    *  The date that is selected
+   * @param {number} isoStartDay
+   *  The ISOWeekday number that starts the week being displayed (1 - 7)
    *
    * @returns {Array<boolean>}
    *
