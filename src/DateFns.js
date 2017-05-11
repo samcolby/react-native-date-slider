@@ -24,7 +24,7 @@ function getStartOfWeek(moment, isoStartDay = 1) {
   if (moment.isoWeekday() < isoStartDay) {
     return result.subtract(1, "week");
   } else {
-    return result.isoWeekday(isoStartDay);
+    return result;
   }
 }
 
