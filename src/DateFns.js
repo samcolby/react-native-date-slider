@@ -19,4 +19,21 @@ function initMoment(date, locale) {
   }
 }
 
-export default { initLocale, initMoment };
+function getStartOfWeek(moment, isoStartDay = 1) {
+  let result = moment.clone().isoWeekday(isoStartDay);
+  if (moment.isoWeekday() < isoStartDay) {
+    return result.subtract(1, "week");
+  } else {
+    return result.isoWeekday(isoStartDay);
+  }
+}
+
+function getSelectedDayOfWeek(selectedDate, isoWeekday) {
+  let result = selectedDate.isoWeekday() - isoWeekday;
+  if (result < 0) {
+    result += 7;
+  }
+  return result;
+}
+
+export default { getSelectedDayOfWeek, getStartOfWeek, initLocale, initMoment };

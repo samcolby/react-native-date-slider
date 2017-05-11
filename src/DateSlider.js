@@ -12,10 +12,15 @@ const EXTEND_WEEKS_BY = 8;
 
 class DateSlider extends React.Component {
   static propTypes = {
+    isoStartDay: React.PropTypes.number,
+    locale: React.PropTypes.object,
     onDateSelected: React.PropTypes.func,
     onWeekChanged: React.PropTypes.func,
-    selectedDate: React.PropTypes.object,
-    locale: React.PropTypes.object
+    selectedDate: React.PropTypes.object
+  };
+
+  static defaultProps = {
+    isoStartDay: 1
   };
 
   flatlist = undefined;
@@ -37,17 +42,18 @@ class DateSlider extends React.Component {
     }
 
     // The very first date in the FlatList
-    const startingDate = selectedDate
-      .clone()
-      .isoWeekday(1)
-      .subtract(EXTEND_WEEKS_BY, "weeks");
+    const startingDate = DateFns.getStartOfWeek(
+      selectedDate,
+      props.isoStartDay
+    ).subtract(EXTEND_WEEKS_BY, "weeks");
 
     this.state = {
       viewWidth: Dimensions.get("window").width,
       arrDates: this._generateDates(
         startingDate,
         EXTEND_WEEKS_BY * 2 + 1,
-        selectedDate
+        selectedDate,
+        props.isoStartDay
       ),
       selectedDate: selectedDate
     };
@@ -100,8 +106,11 @@ class DateSlider extends React.Component {
    *
    * @memberof DateSlider
    */
-  _generateDates(fromDate, weeks, selectedDate) {
-    const startOfSelectedWeek = selectedDate.clone().isoWeekday(1);
+  _generateDates(fromDate, weeks, selectedDate, isoStartDay) {
+    const startOfSelectedWeek = DateFns.getStartOfWeek(
+      selectedDate,
+      isoStartDay
+    );
 
     return _.map(_.range(weeks), i => {
       const weekStartDate = fromDate.clone().add(i, "weeks");
@@ -114,7 +123,8 @@ class DateSlider extends React.Component {
         arrSelected: this._generateArrSelected(
           weekStartDate,
           startOfSelectedWeek,
-          selectedDate
+          selectedDate,
+          isoStartDay
         )
       };
     });
@@ -137,10 +147,15 @@ class DateSlider extends React.Component {
    *
    * @memberof DateSlider
    */
-  _generateArrSelected(weekStartDate, startOfSelectedWeek, selectedDate) {
+  _generateArrSelected(
+    weekStartDate,
+    startOfSelectedWeek,
+    selectedDate,
+    isoStartDay
+  ) {
     let result = [false, false, false, false, false, false, false];
     if (weekStartDate && weekStartDate.isSame(startOfSelectedWeek, "day")) {
-      result[selectedDate.isoWeekday() - 1] = true;
+      result[DateFns.getSelectedDayOfWeek(selectedDate, isoStartDay)] = true;
     }
     return result;
   }
@@ -275,7 +290,10 @@ class DateSlider extends React.Component {
   };
 
   _setSelectedDate = date => {
-    const startOfSelectedWeek = date.clone().isoWeekday(1);
+    const startOfSelectedWeek = DateFns.getStartOfWeek(
+      date,
+      this.props.isoStartDay
+    );
 
     let arrDates = [...this.state.arrDates];
 
@@ -290,7 +308,8 @@ class DateSlider extends React.Component {
     arrDates[selectedIndex].arrSelected = this._generateArrSelected(
       arrDates[selectedIndex].date,
       startOfSelectedWeek,
-      date
+      date,
+      this.props.isoStartDay
     );
 
     this.selectedIndex = selectedIndex;
