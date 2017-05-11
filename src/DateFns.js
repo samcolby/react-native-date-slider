@@ -28,8 +28,8 @@ function getStartOfWeek(moment, isoStartDay = 1) {
   }
 }
 
-function getSelectedDayOfWeek(selectedDate, isoWeekday) {
-  let result = selectedDate.isoWeekday() - isoWeekday;
+function getSelectedDayOfWeek(selectedDate, isoStartDay) {
+  let result = selectedDate.isoWeekday() - isoStartDay;
   if (result < 0) {
     result += 7;
   }
