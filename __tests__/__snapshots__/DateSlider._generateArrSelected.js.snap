@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 1999-02-28 and a selectedDate of 1999-03-01 and the isoStartDay is 3 1`] = `"[false,false,false,false,false,true,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 1999-02-28 and a selectedDate of 1999-03-12 and the isoStartDay is 3 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2010-11-06 and a selectedDate of 2010-10-01 and the isoStartDay is 6 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2010-11-06 and a selectedDate of 2010-11-04 and the isoStartDay is 6 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2017-05-10 and a selectedDate of 2017-05-08 and the isoStartDay is 1 1`] = `"[true,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2017-05-10 and a selectedDate of 2017-05-10 and the isoStartDay is 1 1`] = `"[false,false,true,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2017-05-10 and a selectedDate of 2017-05-12 and the isoStartDay is 1 1`] = `"[false,false,false,false,true,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2017-05-10 and a selectedDate of 2017-05-21 and the isoStartDay is 1 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2018-04-13 and a selectedDate of 2018-04-09 and the isoStartDay is 5 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2018-04-13 and a selectedDate of 2018-04-14 and the isoStartDay is 5 1`] = `"[false,true,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2025-03-01 and a selectedDate of 2010-03-02 and the isoStartDay is 2 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2025-03-01 and a selectedDate of 2010-10-01 and the isoStartDay is 2 1`] = `"[false,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2025-03-01 and a selectedDate of 2025-02-28 and the isoStartDay is 5 1`] = `"[true,false,false,false,false,false,false]"`;
+
+exports[`DateSlider _generateArrSelected should match snapshot when given a week startDate of 2025-03-01 and a selectedDate of 2025-03-12 and the isoStartDay is 5 1`] = `"[false,false,false,false,false,false,false]"`;
