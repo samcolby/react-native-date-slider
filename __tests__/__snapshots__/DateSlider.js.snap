@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateSlider Component should shallow render without issues 1`] = `
+<DateSliderComponent
+  arrDates={
+    Array [
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-03-13T00:00:00.000Z",
+        "key": "2017-03-13T00:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-03-20T00:00:00.000Z",
+        "key": "2017-03-20T00:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-03-26T23:00:00.000Z",
+        "key": "2017-03-26T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-04-02T23:00:00.000Z",
+        "key": "2017-04-02T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-04-09T23:00:00.000Z",
+        "key": "2017-04-09T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-04-16T23:00:00.000Z",
+        "key": "2017-04-16T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-04-23T23:00:00.000Z",
+        "key": "2017-04-23T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-04-30T23:00:00.000Z",
+        "key": "2017-04-30T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+        ],
+        "date": "2017-05-07T23:00:00.000Z",
+        "key": "2017-05-07T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-05-14T23:00:00.000Z",
+        "key": "2017-05-14T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-05-21T23:00:00.000Z",
+        "key": "2017-05-21T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-05-28T23:00:00.000Z",
+        "key": "2017-05-28T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-06-04T23:00:00.000Z",
+        "key": "2017-06-04T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-06-11T23:00:00.000Z",
+        "key": "2017-06-11T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-06-18T23:00:00.000Z",
+        "key": "2017-06-18T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-06-25T23:00:00.000Z",
+        "key": "2017-06-25T23:00:00.000Z",
+      },
+      Object {
+        "arrSelected": Array [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
+        "date": "2017-07-02T23:00:00.000Z",
+        "key": "2017-07-02T23:00:00.000Z",
+      },
+    ]
+  }
+  captureFlatListRef={[Function]}
+  getItemLayout={[Function]}
+  onDateSelected={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={4}
+  onLayout={[Function]}
+  onViewableItemsChanged={[Function]}
+  viewWidth={750}
+/>
+`;
