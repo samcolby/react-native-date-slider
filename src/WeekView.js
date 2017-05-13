@@ -23,8 +23,6 @@ class WeekView extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.startingDate !== this.state.arrDays[0]) {
-      // REM this shouldn't ever really be called
-      // as the starting date should always be the same for each week
       this.setState({
         arrDays: this.generateArrDays(nextProps.startingDate)
       });
