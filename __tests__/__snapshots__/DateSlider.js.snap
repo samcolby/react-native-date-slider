@@ -40,8 +40,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-03-26T23:00:00.000Z",
-        "key": "2017-03-26T23:00:00.000Z",
+        "date": "2017-03-27T00:00:00.000Z",
+        "key": "2017-03-27T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -53,8 +53,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-04-02T23:00:00.000Z",
-        "key": "2017-04-02T23:00:00.000Z",
+        "date": "2017-04-03T00:00:00.000Z",
+        "key": "2017-04-03T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -66,8 +66,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-04-09T23:00:00.000Z",
-        "key": "2017-04-09T23:00:00.000Z",
+        "date": "2017-04-10T00:00:00.000Z",
+        "key": "2017-04-10T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -79,8 +79,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-04-16T23:00:00.000Z",
-        "key": "2017-04-16T23:00:00.000Z",
+        "date": "2017-04-17T00:00:00.000Z",
+        "key": "2017-04-17T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -92,8 +92,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-04-23T23:00:00.000Z",
-        "key": "2017-04-23T23:00:00.000Z",
+        "date": "2017-04-24T00:00:00.000Z",
+        "key": "2017-04-24T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -105,21 +105,21 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-04-30T23:00:00.000Z",
-        "key": "2017-04-30T23:00:00.000Z",
+        "date": "2017-05-01T00:00:00.000Z",
+        "key": "2017-05-01T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
-          false,
-          false,
           false,
           false,
           false,
           true,
           false,
+          false,
+          false,
         ],
-        "date": "2017-05-07T23:00:00.000Z",
-        "key": "2017-05-07T23:00:00.000Z",
+        "date": "2017-05-08T00:00:00.000Z",
+        "key": "2017-05-08T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -131,8 +131,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-05-14T23:00:00.000Z",
-        "key": "2017-05-14T23:00:00.000Z",
+        "date": "2017-05-15T00:00:00.000Z",
+        "key": "2017-05-15T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -144,8 +144,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-05-21T23:00:00.000Z",
-        "key": "2017-05-21T23:00:00.000Z",
+        "date": "2017-05-22T00:00:00.000Z",
+        "key": "2017-05-22T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -157,8 +157,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-05-28T23:00:00.000Z",
-        "key": "2017-05-28T23:00:00.000Z",
+        "date": "2017-05-29T00:00:00.000Z",
+        "key": "2017-05-29T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -170,8 +170,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-06-04T23:00:00.000Z",
-        "key": "2017-06-04T23:00:00.000Z",
+        "date": "2017-06-05T00:00:00.000Z",
+        "key": "2017-06-05T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -183,8 +183,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-06-11T23:00:00.000Z",
-        "key": "2017-06-11T23:00:00.000Z",
+        "date": "2017-06-12T00:00:00.000Z",
+        "key": "2017-06-12T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -196,8 +196,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-06-18T23:00:00.000Z",
-        "key": "2017-06-18T23:00:00.000Z",
+        "date": "2017-06-19T00:00:00.000Z",
+        "key": "2017-06-19T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -209,8 +209,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-06-25T23:00:00.000Z",
-        "key": "2017-06-25T23:00:00.000Z",
+        "date": "2017-06-26T00:00:00.000Z",
+        "key": "2017-06-26T00:00:00.000Z",
       },
       Object {
         "arrSelected": Array [
@@ -222,8 +222,8 @@ exports[`DateSlider Component should shallow render without issues 1`] = `
           false,
           false,
         ],
-        "date": "2017-07-02T23:00:00.000Z",
-        "key": "2017-07-02T23:00:00.000Z",
+        "date": "2017-07-03T00:00:00.000Z",
+        "key": "2017-07-03T00:00:00.000Z",
       },
     ]
   }
