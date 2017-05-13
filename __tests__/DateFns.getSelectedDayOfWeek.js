@@ -2,7 +2,7 @@ import moment from "moment";
 
 import DateFns from "../src/DateFns";
 
-const getSelectedDayOfWeekTestData = [
+const testData = [
   {
     input: "2017-05-08",
     isoStartDay: 1,
@@ -116,7 +116,7 @@ const getSelectedDayOfWeekTestData = [
 ];
 
 describe("DateFns getSelectedDayOfWeek", () => {
-  getSelectedDayOfWeekTestData.forEach(item => {
+  testData.forEach(item => {
     it(`should return ${item.output} when given ${item.input} and iosWeekday is ${item.isoStartDay}`, () => {
       const result = DateFns.getSelectedDayOfWeek(
         moment(item.input),

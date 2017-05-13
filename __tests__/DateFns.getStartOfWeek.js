@@ -2,7 +2,7 @@ import moment from "moment";
 
 import DateFns from "../src/DateFns";
 
-const getStartOfWeekTestData = [
+const testData = [
   {
     input: "2017-05-10",
     isoStartDay: 1,
@@ -86,7 +86,7 @@ const getStartOfWeekTestData = [
 ];
 
 describe("DateFns getStartOfWeek", () => {
-  getStartOfWeekTestData.forEach(item => {
+  testData.forEach(item => {
     it(`should return ${item.output} when given ${item.input} and iosWeekday is ${item.isoStartDay}`, () => {
       const result = DateFns.getStartOfWeek(
         moment(item.input),
