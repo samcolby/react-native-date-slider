@@ -56,8 +56,8 @@ class WeekView extends PureComponent {
         <CalendarDay
           key={date.toISOString()}
           date={date}
-          selected={this.props.arrSelected[i]}
           onDateSelected={this.props.onDateSelected}
+          selected={this.props.arrSelected[i]}
         />
       );
     });
