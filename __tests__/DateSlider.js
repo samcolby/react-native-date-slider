@@ -9,7 +9,9 @@ import DateSlider from "../src/DateSlider";
 
 describe("DateSlider Component", () => {
   it("should shallow render without issues", () => {
-    const component = shallow(<DateSlider />);
+    const component = shallow(
+      <DateSlider selectedDate={moment.utc("2017-05-11")} />
+    );
 
     expect(component.length).toBe(1);
     expect(toJson(component)).toMatchSnapshot();
