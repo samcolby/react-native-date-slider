@@ -65,7 +65,7 @@ class WeekView extends PureComponent {
 
     return (
       <View style={{ flexGrow: 1, height: 100 }}>
-        <CalendarHeader startDate={this.props.startingDate} />
+        <CalendarHeader startingDate={this.props.startingDate} />
 
         <View
           style={{

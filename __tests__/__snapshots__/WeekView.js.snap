@@ -4,70 +4,83 @@ exports[`WeekView Component should rerender if the starting date changes 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
-      "flexDirection": "row",
-      "justifyContent": "space-between",
-      "paddingHorizontal": 12,
-      "width": 750,
+      "flexGrow": 1,
+      "height": 100,
     }
   }
 >
-  <CalendarDay
-    date={"2015-06-15T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={true}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
+  <CalendarHeader
+    calendarHeaderFormat="MMMM YYYY"
+    startingDate={"2015-06-15T00:00:00.000Z"}
   />
-  <CalendarDay
-    date={"2015-06-16T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2015-06-17T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2015-06-18T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2015-06-19T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2015-06-20T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2015-06-21T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingHorizontal": 12,
+        "width": 750,
+      }
+    }
+  >
+    <CalendarDay
+      date={"2015-06-15T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={true}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2015-06-16T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2015-06-17T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2015-06-18T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2015-06-19T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2015-06-20T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2015-06-21T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+  </View>
 </View>
 `;
 
@@ -75,70 +88,83 @@ exports[`WeekView Component should shallow render without issues 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
-      "flexDirection": "row",
-      "justifyContent": "space-between",
-      "paddingHorizontal": 12,
-      "width": 750,
+      "flexGrow": 1,
+      "height": 100,
     }
   }
 >
-  <CalendarDay
-    date={"2017-06-12T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
+  <CalendarHeader
+    calendarHeaderFormat="MMMM YYYY"
+    startingDate={"2017-06-12T00:00:00.000Z"}
   />
-  <CalendarDay
-    date={"2017-06-13T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={true}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-14T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-15T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-16T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-17T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-18T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingHorizontal": 12,
+        "width": 750,
+      }
+    }
+  >
+    <CalendarDay
+      date={"2017-06-12T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-13T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={true}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-14T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-15T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-16T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-17T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-18T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+  </View>
 </View>
 `;
 
@@ -146,69 +172,82 @@ exports[`WeekView Component should update if the selected date changes 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
-      "flexDirection": "row",
-      "justifyContent": "space-between",
-      "paddingHorizontal": 12,
-      "width": 750,
+      "flexGrow": 1,
+      "height": 100,
     }
   }
 >
-  <CalendarDay
-    date={"2017-06-12T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
+  <CalendarHeader
+    calendarHeaderFormat="MMMM YYYY"
+    startingDate={"2017-06-12T00:00:00.000Z"}
   />
-  <CalendarDay
-    date={"2017-06-13T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-14T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={true}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-15T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-16T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-17T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
-  <CalendarDay
-    date={"2017-06-18T00:00:00.000Z"}
-    onDateSelected={[Function]}
-    selected={false}
-    showDayName={true}
-    showDayNumber={true}
-    styleWeekend={true}
-  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingHorizontal": 12,
+        "width": 750,
+      }
+    }
+  >
+    <CalendarDay
+      date={"2017-06-12T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-13T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-14T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={true}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-15T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-16T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-17T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+    <CalendarDay
+      date={"2017-06-18T00:00:00.000Z"}
+      onDateSelected={[Function]}
+      selected={false}
+      showDayName={true}
+      showDayNumber={true}
+      styleWeekend={true}
+    />
+  </View>
 </View>
 `;
