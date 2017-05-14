@@ -29,7 +29,7 @@ describe("CalendarHeader Component", () => {
       />
     );
 
-    expect(component.props().children).toBe("December 2017");
+    expect(component.contains("December 2017")).toBe(true);
     expect(toJson(component)).toMatchSnapshot();
   });
 
@@ -41,7 +41,7 @@ describe("CalendarHeader Component", () => {
       />
     );
 
-    expect(component.props().children).toBe("January / February 2018");
+    expect(component.contains("January / February 2018")).toBe(true);
     expect(toJson(component)).toMatchSnapshot();
   });
 
@@ -53,7 +53,7 @@ describe("CalendarHeader Component", () => {
       />
     );
 
-    expect(component.props().children).toBe("December 2017 / January 2018");
+    expect(component.contains("December 2017 / January 2018")).toBe(true);
     expect(toJson(component)).toMatchSnapshot();
   });
 
@@ -65,7 +65,7 @@ describe("CalendarHeader Component", () => {
       />
     );
 
-    expect(component.props().children).toBe("Jan / Feb 2018");
+    expect(component.contains("Jan / Feb 2018")).toBe(true);
     expect(toJson(component)).toMatchSnapshot();
   });
 
@@ -77,7 +77,7 @@ describe("CalendarHeader Component", () => {
       />
     );
 
-    expect(component.props().children).toBe("01 / 02 2018");
+    expect(component.contains("01 / 02 2018")).toBe(true);
     expect(toJson(component)).toMatchSnapshot();
   });
 
@@ -102,7 +102,7 @@ describe("CalendarHeader Component", () => {
       />
     );
 
-    expect(component.props().children).toBe("1st / 2nd 18");
+    expect(component.contains("1st / 2nd 18")).toBe(true);
     expect(toJson(component)).toMatchSnapshot();
   });
 });
