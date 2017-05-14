@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import DateFns from "../src/DateFns";
 
 const localeFR = {
@@ -67,6 +69,10 @@ const localeFR = {
 };
 
 describe("DateFns initLocale", () => {
+  afterEach(() => {
+    moment.locale("fr", null);
+  });
+
   it(`should initialize without error`, () => {
     expect(() =>
       DateFns.initLocale(localeFR.name, localeFR.config)
@@ -79,5 +85,10 @@ describe("DateFns initLocale", () => {
 
   it(`should throw an error if format incorrect`, () => {
     expect(() => DateFns.initLocale(localeFR)).toThrow();
+  });
+
+  it(`should show the month in french`, () => {
+    DateFns.initLocale(localeFR.name, localeFR.config);
+    expect(moment("2018-01-12").format("MMMM")).toBe(localeFR.config.months[0]);
   });
 });
