@@ -26,6 +26,7 @@ class DateSlider extends React.Component {
   flatlist = undefined;
   selectedIndex = 0;
   viewableIndex = -1;
+  isExpanding = false;
 
   constructor(props) {
     super(props);
@@ -236,6 +237,7 @@ class DateSlider extends React.Component {
   };
 
   _onEndReached = () => {
+    this.isExpanding = true;
     const lastDate = this.state.arrDates[this.state.arrDates.length - 1].date;
     const appendWeeksFrom = lastDate.clone().add(1, "weeks");
     const arrNewDates = this._generateDates(
@@ -244,6 +246,7 @@ class DateSlider extends React.Component {
       this.state.selectedDate
     );
     this.setState({ arrDates: [...this.state.arrDates, ...arrNewDates] });
+    this.isExpanding = false;
   };
 
   _onStartReached = () => {
@@ -259,6 +262,7 @@ class DateSlider extends React.Component {
     this.setState({ arrDates: [...arrNewDates, ...this.state.arrDates] });
     this.selectedIndex = this.selectedIndex + EXTEND_WEEKS_BY;
     this._scrollTo(END_THRESHOLD - 1 + EXTEND_WEEKS_BY);
+    this.isExpanding = false;
   };
 
   _onViewableItemsChanged = ({ viewableItems, changed }) => {
@@ -279,11 +283,11 @@ class DateSlider extends React.Component {
         this.props.onWeekChanged(date);
       }
 
-      if (
-        changedIndex === END_THRESHOLD &&
-        viewableIndex === changedIndex - 1
-      ) {
-        this._onStartReached();
+      if (changedIndex <= END_THRESHOLD && viewableIndex === changedIndex - 1) {
+        if (!this.isExpanding) {
+          this.isExpanding = true;
+          this._onStartReached();
+        }
       }
     }
   };
