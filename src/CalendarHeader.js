@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Text } from "react-native";
 
 import styles from "./Calendar.style.js";
 
-class CalendarHeader extends Component {
+class CalendarHeader extends PureComponent {
   static propTypes = {
     calendarHeaderFormat: React.PropTypes.string.isRequired,
     calendarHeaderStyle: React.PropTypes.oneOfType([
@@ -16,10 +16,6 @@ class CalendarHeader extends Component {
   static defaultProps = {
     calendarHeaderFormat: "MMMM YYYY"
   };
-
-  shouldComponentUpdate(nextProps) {
-    return JSON.stringify(this.props) !== JSON.stringify(nextProps);
-  }
 
   //Function that formats the calendar header
   //It also formats the month section if the week is in between months
