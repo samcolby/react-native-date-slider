@@ -64,7 +64,7 @@ describe("DateSlider _setSelectedDate", () => {
     doTest("2017-05-11", "2017-04-11", 1);
   });
 
-  // TODO
+  // TODO: Get these to work by changing array dates
   // it("should change the selectedDate to the following year", () => {
   //   doTest("2017-05-11", "2018-05-11", 1);
   // });
