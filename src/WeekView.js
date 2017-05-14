@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { View } from "react-native";
 
+import CalendarHeader from "./CalendarHeader";
 import CalendarDay from "./CalendarDay";
 
 const DAYS_TO_GENERATE_ARRAY = [1, 2, 3, 4, 5, 6];
@@ -63,16 +64,20 @@ class WeekView extends PureComponent {
     });
 
     return (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingHorizontal: 12,
-          width: this.props.viewWidth
-        }}
-      >
-        {arrCalendarDays}
+      <View style={{ flexGrow: 1, height: 100 }}>
+        <CalendarHeader startDate={this.props.startingDate} />
+
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingHorizontal: 12,
+            width: this.props.viewWidth
+          }}
+        >
+          {arrCalendarDays}
+        </View>
       </View>
     );
   }
