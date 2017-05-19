@@ -99,7 +99,7 @@ class DateSlider extends React.Component {
    *
    * @param {moment} fromDate
    *  The starting date for the array of weeks to be generated
-   * @param {integer} weeks
+   * @param {number} weeks
    *  The number of weeks to be generated
    * @param {moment} selectedDate
    *  The date that is current selected
@@ -243,7 +243,8 @@ class DateSlider extends React.Component {
     const arrNewDates = this._generateDates(
       appendWeeksFrom,
       EXTEND_WEEKS_BY,
-      this.state.selectedDate
+      this.state.selectedDate,
+      this.props.isoStartDay
     );
     this.setState({ arrDates: [...this.state.arrDates, ...arrNewDates] });
     this.isExpanding = false;
@@ -257,7 +258,8 @@ class DateSlider extends React.Component {
     const arrNewDates = this._generateDates(
       prependWeeksFrom,
       EXTEND_WEEKS_BY,
-      this.state.selectedDate
+      this.state.selectedDate,
+      this.props.isoStartDay
     );
     this.setState({ arrDates: [...arrNewDates, ...this.state.arrDates] });
     this.selectedIndex = this.selectedIndex + EXTEND_WEEKS_BY;
