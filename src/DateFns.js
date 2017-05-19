@@ -26,7 +26,7 @@ function initLocale(name, config) {
  *
  * @param {any} date
  *  Anything accepted by a moment(<value>) call
- * @param {string} locale
+ * @param {Object} locale
  *  The locale to be used in this moment
  * @returns {moment}
  *  This initialized moment
