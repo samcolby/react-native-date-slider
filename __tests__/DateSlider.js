@@ -21,7 +21,7 @@ describe("DateSlider Component", () => {
     const isoStartDay = 4;
     const onDateSelected = jest.fn();
     const onWeekChanged = jest.fn();
-    const selectedDate = new moment();
+    const selectedDate = moment();
     const component = shallow(
       <DateSlider
         isoStartDay={isoStartDay}
