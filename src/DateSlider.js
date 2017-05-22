@@ -62,12 +62,47 @@ class DateSlider extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (
+      nextProps.locale &&
+      nextProps != this.props.locale &&
+      nextProps.locale.name &&
+      nextProps.locale.config
+    ) {
+      DateFns.initLocale(nextProps.locale.name, nextProps.locale.config);
+    }
+
+    if (
       nextProps.selectedDate &&
       !this.state.selectedDate.isSame(nextProps.selectedDate, "day")
     ) {
-      this._setSelectedDate(
-        DateFns.initMoment(nextProps.selectedDate, nextProps.locale)
+      const selectedDate = DateFns.initMoment(
+        nextProps.selectedDate,
+        nextProps.locale
       );
+
+      if (
+        selectedDate.isBefore(this.state.arrDates[0].date) ||
+        selectedDate.isAfter(_.last(this.state.arrDates).date.add(6, "days"))
+      ) {
+        // We need to regenerate the dates
+        // The very first date in the FlatList
+        const startingDate = DateFns.getStartOfWeek(
+          selectedDate,
+          nextProps.isoStartDay
+        ).subtract(EXTEND_WEEKS_BY, "weeks");
+
+        this.setState({
+          arrDates: this._generateDates(
+            startingDate,
+            EXTEND_WEEKS_BY * 2 + 1,
+            selectedDate,
+            nextProps.isoStartDay
+          ),
+          selectedDate: selectedDate
+        });
+      } else {
+        this._setSelectedDate(selectedDate);
+      }
+
       this._scrollTo(this.selectedIndex);
     }
   }
