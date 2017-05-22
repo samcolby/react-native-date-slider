@@ -100,6 +100,7 @@ class DateSlider extends React.Component {
           selectedDate: selectedDate
         });
       } else {
+        // just set it in the current set of arrDates
         this._setSelectedDate(selectedDate);
       }
 
