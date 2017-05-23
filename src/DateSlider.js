@@ -350,20 +350,22 @@ class DateSlider extends React.Component {
       startOfSelectedWeek.toISOString()
     ]);
 
-    arrDates[prevSelectedIndex].arrSelected = this._generateArrSelected();
-    arrDates[selectedIndex].arrSelected = this._generateArrSelected(
-      arrDates[selectedIndex].date,
-      startOfSelectedWeek,
-      date,
-      this.props.isoStartDay
-    );
+    if (selectedIndex > 0) {
+      arrDates[prevSelectedIndex].arrSelected = this._generateArrSelected();
+      arrDates[selectedIndex].arrSelected = this._generateArrSelected(
+        arrDates[selectedIndex].date,
+        startOfSelectedWeek,
+        date,
+        this.props.isoStartDay
+      );
 
-    this.selectedIndex = selectedIndex;
+      this.selectedIndex = selectedIndex;
 
-    this.setState({
-      arrDates: arrDates,
-      selectedDate: date
-    });
+      this.setState({
+        arrDates: arrDates,
+        selectedDate: date
+      });
+    }
   };
 }
 
